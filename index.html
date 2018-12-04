@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #F0F0F0;
+    }
+</style>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+
+<script src="/node_modules/konva/konva.js"></script>
+<script src="/classes.js"></script>
+
+<script>
+
+    //configuration
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    const tilesWidth=50;
+    const tilesHeigth=100;
+    const TilesBotMarging=20;
+    const TilesRightMarging=1;
+    var boardValueLeft=null;
+    var boardValueRight=null;
+    
+    //configuration
+
+
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    });
+
+    var layer = new Konva.Layer();
+    var rectX = stage.getWidth() -(stage.getWidth()-100) ;
+    var rectY = stage.getHeight() -(tilesHeigth+TilesBotMarging) ;
+
+    var box = new Konva.Rect(new Tile());
+
+    // add cursor styling
+    box.on('mouseover', function() {
+        document.body.style.cursor = 'pointer';
+    });
+    box.on('mouseout', function() {
+        document.body.style.cursor = 'default';
+    });
+
+    
+
+
+    layer.add(box);
+    stage.add(layer);
+</script>
+</html>
