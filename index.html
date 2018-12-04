@@ -31,32 +31,28 @@
     const tilesWidth=50;
     const tilesHeigth=100;
     const TilesBotMarging=20;
-    const TilesRightMarging=1;
+    const TilesRightMarging=3;
+    const iniciaFichaEnManoEn=460;
     var boardValueLeft=null;
     var boardValueRight=null;
     var tween=null;
    
 var tween = null;
 
-function addStar(layer, stage) {
-    var box = new Konva.Rect(new Tile());
 
-    layer.add(box);
-}
 var stage = new Konva.Stage({
     container: 'container',
     width: width,
     height: height
 });
 
- var rectX = stage.getWidth() -(stage.getWidth()-100) ;
-    var rectY = stage.getHeight() -(tilesHeigth+TilesBotMarging) ;
+ 
 
 var layer = new Konva.Layer();
 var dragLayer = new Konva.Layer();
 
 
-    addStar(layer, stage);
+    AddTileGroup(layer);
 
 
 stage.add(layer);

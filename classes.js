@@ -1,11 +1,11 @@
 class Tile {
-
+ 
     constructor(valuex, valuey)
     {
 
         
-        this.x= rectX,
-        this.y= rectY,
+        this.x= valuex  ? valuex:stage.getWidth() -(stage.getWidth()-450),
+        this.y= valuey  ? valuey:stage.getHeight() -(tilesHeigth+TilesBotMarging) ,
         this.width= tilesWidth,
         this.height= tilesHeigth,
         this.fill= 'white',
@@ -42,8 +42,38 @@ class Tile {
     }
 }
 
+
 class Board {
     constructor(){
 
     }
+}
+
+///Classes
+
+function addTile(layer) {
+    var box = new Konva.Rect(new Tile(iniciaEn));
+
+    layer.add(box);
+}
+
+function AddTileGroup(layer){
+   
+    const primera=iniciaFichaEnManoEn;
+    var tilesW=0;
+  for (let index = 0; index < 7; index++) {
+    
+    
+    if(index>0)
+    iniciaEn=iniciaEn + tilesWidth + TilesRightMarging;
+    else
+    iniciaEn=primera;
+
+    var box = new Konva.Rect(new Tile(iniciaEn));
+
+    layer.add(box);
+      
+  }
+
+
 }
