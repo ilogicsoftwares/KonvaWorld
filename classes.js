@@ -20,6 +20,11 @@ class Tile {
             x : 5,
             y : 5
         },
+        this.scale= {
+            x : 1,
+            y : 1
+        },
+        this.startScale= 1,
         this.shadowOpacity= 0.6
         
 
