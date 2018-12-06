@@ -6,6 +6,7 @@
     const TilesBotMarging=20;
     const TilesRightMarging=3;
     const iniciaFichaEnManoEn=460;
+    const iniciaFichaEnManoY=130;
     var boardValueLeft=null;
     var boardValueRight=null;
     var tween=null;
@@ -84,9 +85,12 @@ function addTile(layer,stage, orientation,x,y) {
     layer.add(box);
 }
 
-function AddTileGroup(layer,stage){
+function AddTileGroupBot(layer,stage){
     
     const primera=iniciaFichaEnManoEn;
+   
+    
+
     var iniciaEn=0;
   for (let index = 0; index < 7; index++) {
     
@@ -96,17 +100,20 @@ function AddTileGroup(layer,stage){
     else
     iniciaEn=primera;
 
-    addTile(layer,stage,0,iniciaEn);
+    addTile(layer,stage,0,iniciaEn,null);
       
   }
 
 
 }
 
-function AddTileGroupB(layer,stage){
-   
+function AddTileGroupTop(layer,stage){
+    
     const primera=iniciaFichaEnManoEn;
-    var tilesW=0;
+   
+    
+
+    var iniciaEn=0;
   for (let index = 0; index < 7; index++) {
     
     
@@ -115,9 +122,54 @@ function AddTileGroupB(layer,stage){
     else
     iniciaEn=primera;
 
-    addTile(layer,stage);
+    addTile(layer,stage,0,iniciaEn,10);
       
   }
 
 
 }
+
+function AddTileGroupLeft(layer,stage){
+    
+    const primera=iniciaFichaEnManoY;
+   
+    
+
+    var iniciaEn=0;
+  for (let index = 0; index < 7; index++) {
+    
+    
+    if(index>0)
+    iniciaEn=iniciaEn + tilesWidth + TilesRightMarging;
+    else
+    iniciaEn=primera;
+
+    addTile(layer,stage,1,150,iniciaEn);
+      
+  }
+
+
+}
+
+function AddTileGroupRight(layer,stage){
+    
+    const primera=iniciaFichaEnManoY;
+   
+    
+
+    var iniciaEn=0;
+  for (let index = 0; index < 7; index++) {
+    
+    
+    if(index>0)
+    iniciaEn=iniciaEn + tilesWidth + TilesRightMarging;
+    else
+    iniciaEn=primera;
+
+    addTile(layer,stage,1, (stage.getWidth()-50),iniciaEn);
+      
+  }
+
+
+}
+
