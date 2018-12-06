@@ -45,6 +45,7 @@ var dragLayer = new Konva.Layer();
     AddTileGroupTop(layer,stage);
     AddTileGroupLeft(layer,stage);
     AddTileGroupRight(layer,stage);
+    addTileContainer(layer,stage);
 
 
 stage.add(layer);
@@ -53,6 +54,10 @@ stage.add(dragLayer);
 // bind stage handlers
 stage.on('mousedown', function(evt) {
     var shape = evt.target;
+
+if(!shape.attrs.draggable)
+    return;
+
     shape.moveTo(dragLayer);
     stage.draw();
     // restart drag and drop in the new layer
@@ -60,7 +65,11 @@ stage.on('mousedown', function(evt) {
 });
 
 stage.on('mouseup', function(evt) {
+   
     var shape = evt.target;
+    if(!shape.attrs.draggable)
+    return;
+    
     shape.position(shape.attrs.initialPosition);
     shape.moveTo(layer);
     
@@ -71,6 +80,9 @@ stage.on('mouseup', function(evt) {
 
 stage.on('dragstart', function(evt) {
     var shape = evt.target;
+
+    if(!shape.attrs.draggable)
+    return;
     if (tween) {
         tween.pause();
     }

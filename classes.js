@@ -11,6 +11,35 @@
     var boardValueRight=null;
     var tween=null;
 
+
+class TileContainer{
+    constructor(valuex, valuey,stage)
+    {
+
+        this.width= tilesWidth,
+        this.height= tilesHeigth,
+        this.x= valuex  ? valuex:(stage.getWidth() -tilesWidth)/2,
+        this.y= valuey  ?valuey:(stage.getHeight() -tilesHeigth)/2,
+        this.stroke= 'green',
+        this.strokeWidth= 1,
+        this.draggable=false,
+        this.valueLeft=0,
+        this.valueRigt=0,
+        this.initialPosition={
+            x:this.x,
+            y:this.y
+        },
+        this.scale= {
+            x : 1,
+            y : 1
+        },
+        this.startScale= 1
+        
+
+    }      
+
+}
+
 class Tile {
  
     constructor(valuex, valuey,stage)
@@ -84,6 +113,12 @@ class Board {
 
 function addTile(layer,stage, orientation,x,y) {
     var box = new Konva.Rect(new Tile(x,y,stage));
+    if (orientation==1) 
+    box.rotate(90);
+    layer.add(box);
+}
+function addTileContainer(layer,stage, orientation,x,y) {
+    var box = new Konva.Rect(new TileContainer(x,y,stage));
     if (orientation==1) 
     box.rotate(90);
     layer.add(box);
