@@ -61,8 +61,12 @@ stage.on('mousedown', function(evt) {
 
 stage.on('mouseup', function(evt) {
     var shape = evt.target;
+    shape.position(shape.attrs.initialPosition);
     shape.moveTo(layer);
+    
     stage.draw();
+    
+
 });
 
 stage.on('dragstart', function(evt) {
@@ -96,6 +100,8 @@ stage.on('dragend', function(evt) {
     });
 
     tween.play();
+
+    
 });
 
 

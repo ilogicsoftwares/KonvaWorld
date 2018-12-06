@@ -30,8 +30,8 @@ class Tile {
         this.shadowColor='Black',
         this.shadowBlur= 10,
         this.initialPosition={
-            x:null,
-            y:null
+            x:this.x,
+            y:this.y
         }
         this.shadowOffset= {
             x : 5,
@@ -61,6 +61,10 @@ class Tile {
     setPosition(x,y){
         this.x=x;
         this.y=y;
+    }
+    returnInitialPosition(){
+        this.x=this.initialPosition.x;
+        this.y=this.initialPosition.y;
     }
 
 
