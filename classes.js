@@ -1,6 +1,18 @@
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    const tilesWidth=50;
+    const tilesHeigth=100;
+    const TilesBotMarging=20;
+    const TilesRightMarging=3;
+    const iniciaFichaEnManoEn=460;
+    var boardValueLeft=null;
+    var boardValueRight=null;
+    var tween=null;
+
 class Tile {
  
-    constructor(valuex, valuey)
+    constructor(valuex, valuey,stage)
     {
 
         
@@ -16,6 +28,10 @@ class Tile {
         this.valueRigt=0
         this.shadowColor='Black',
         this.shadowBlur= 10,
+        this.initialPosition={
+            x:null,
+            y:null
+        }
         this.shadowOffset= {
             x : 5,
             y : 5
@@ -40,24 +56,34 @@ class Tile {
     || (this.valueRigt==boardValueLeft || this.valueLeft==boardValueRight) ;
     
     }
+
+    setPosition(x,y){
+        this.x=x;
+        this.y=y;
+    }
+
+
 }
 
 
 class Board {
     constructor(){
-
+     this.boardNumber=0,
+     this.boardState =0,
+     this.aValue=null,
+     this.bValue=null    
     }
 }
 
 ///Classes
 
-function addTile(layer) {
-    var box = new Konva.Rect(new Tile(iniciaEn));
+function addTile(layer,stage) {
+    var box = new Konva.Rect(new Tile(iniciaEn,null,stage));
 
     layer.add(box);
 }
 
-function AddTileGroup(layer){
+function AddTileGroup(layer,stage){
    
     const primera=iniciaFichaEnManoEn;
     var tilesW=0;
@@ -69,9 +95,7 @@ function AddTileGroup(layer){
     else
     iniciaEn=primera;
 
-    var box = new Konva.Rect(new Tile(iniciaEn));
-
-    layer.add(box);
+    addTile(layer,stage);
       
   }
 

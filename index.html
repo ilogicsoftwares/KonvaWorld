@@ -26,18 +26,7 @@
 <script>
 
     //configuration
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    const tilesWidth=50;
-    const tilesHeigth=100;
-    const TilesBotMarging=20;
-    const TilesRightMarging=3;
-    const iniciaFichaEnManoEn=460;
-    var boardValueLeft=null;
-    var boardValueRight=null;
-    var tween=null;
-   
-var tween = null;
+
 
 
 var stage = new Konva.Stage({
@@ -52,7 +41,7 @@ var layer = new Konva.Layer();
 var dragLayer = new Konva.Layer();
 
 
-    AddTileGroup(layer);
+    AddTileGroup(layer,stage);
 
 
 stage.add(layer);
