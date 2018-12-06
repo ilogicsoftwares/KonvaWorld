@@ -10,7 +10,7 @@
     var boardValueLeft=null;
     var boardValueRight=null;
     var tween=null;
-
+    
 
 class TileContainer{
     constructor(valuex, valuey,stage)
@@ -42,7 +42,7 @@ class TileContainer{
 
 class Tile {
  
-    constructor(valuex, valuey,stage)
+    constructor(valuex, valuey,stage,draggable)
     {
 
         
@@ -53,7 +53,7 @@ class Tile {
         this.fill= 'white',
         this.stroke= 'black',
         this.strokeWidth= 1,
-        this.draggable= true,
+        this.draggable= draggable,
         this.valueLeft=0,
         this.valueRigt=0
         this.shadowColor='Black',
@@ -111,8 +111,8 @@ class Board {
 
 ///Classes
 
-function addTile(layer,stage, orientation,x,y) {
-    var box = new Konva.Rect(new Tile(x,y,stage));
+function addTile(layer,stage, orientation,x,y,draggable) {
+    var box = new Konva.Rect(new Tile(x,y,stage,draggable));
     if (orientation==1) 
     box.rotate(90);
     layer.add(box);
