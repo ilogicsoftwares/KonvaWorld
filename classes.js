@@ -77,13 +77,33 @@ class Board {
 
 ///Classes
 
-function addTile(layer,stage) {
-    var box = new Konva.Rect(new Tile(iniciaEn,null,stage));
-
+function addTile(layer,stage, orientation,x,y) {
+    var box = new Konva.Rect(new Tile(x,y,stage));
+    if (orientation==1) 
+    box.rotate(90);
     layer.add(box);
 }
 
 function AddTileGroup(layer,stage){
+    
+    const primera=iniciaFichaEnManoEn;
+    var iniciaEn=0;
+  for (let index = 0; index < 7; index++) {
+    
+    
+    if(index>0)
+    iniciaEn=iniciaEn + tilesWidth + TilesRightMarging;
+    else
+    iniciaEn=primera;
+
+    addTile(layer,stage,0,iniciaEn);
+      
+  }
+
+
+}
+
+function AddTileGroupB(layer,stage){
    
     const primera=iniciaFichaEnManoEn;
     var tilesW=0;
