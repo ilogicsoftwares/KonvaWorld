@@ -133,13 +133,13 @@ function AddTileGroupBot(layer,stage){
     var iniciaEn=0;
   for (let index = 0; index < 7; index++) {
     
-    
+        
     if(index>0)
     iniciaEn=iniciaEn + tilesWidth + TilesRightMarging;
     else
     iniciaEn=primera;
 
-    addTile(layer,stage,0,iniciaEn,null);
+    addTile(layer,stage,0,iniciaEn,null,true);
       
   }
 
